@@ -5,7 +5,7 @@ public class Swim extends Exercise {
     private String title;
     private String date;
     private double distance;
-    private double duration;
+    private String duration;
     private double pace;
 
     /*
@@ -18,7 +18,7 @@ public class Swim extends Exercise {
         title = "New Swim";
         date = "";
         distance = 0.0;
-        duration = 0.0;
+        duration = "00:00:00";
         pace = 0.0;
     }
 
@@ -35,7 +35,7 @@ public class Swim extends Exercise {
         return distance;
     }
 
-    public double getDuration() {
+    public String getDuration() {
         return duration;
     }
 
@@ -52,7 +52,7 @@ public class Swim extends Exercise {
         this.date = date;
     }
 
-    public void setDuration(double duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 

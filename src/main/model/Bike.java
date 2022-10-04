@@ -5,7 +5,7 @@ public class Bike extends Exercise {
     private String title;
     private String date;
     private double distance;
-    private double duration;
+    private String duration;
     private double pace;
     private int elevation;
 
@@ -16,10 +16,10 @@ public class Bike extends Exercise {
      * sets the pace to 0:00/km; sets the elevation to 0 meters;
      */
     public Bike() {
-        title = "New Run";
+        title = "New Bike Ride";
         date = "";
         distance = 0.0;
-        duration = 0.0;
+        duration = "00:00:00";
         pace = 0.0;
         elevation = 0;
     }
@@ -37,7 +37,7 @@ public class Bike extends Exercise {
         return distance;
     }
 
-    public double getDuration() {
+    public String getDuration() {
         return duration;
     }
 
@@ -58,7 +58,7 @@ public class Bike extends Exercise {
         this.date = date;
     }
 
-    public void setDuration(double duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
