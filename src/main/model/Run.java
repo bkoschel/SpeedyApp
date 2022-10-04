@@ -1,7 +1,7 @@
 package model;
 
 // Represents a Run entry having a title, date, distance, duration and pace
-public class Run {
+public class Run extends Exercise {
     private String title;
     private String date;
     private double distance;
