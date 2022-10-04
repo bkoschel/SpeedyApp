@@ -72,11 +72,5 @@ public class Run extends Exercise {
         this.elevation = elevation;
     }
 
-    public double calculatePace() {
-        return 0.0;
-    }
 
-    public double changeUnits() {
-        return 0.0;
-    }
 }

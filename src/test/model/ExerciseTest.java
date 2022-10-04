@@ -33,6 +33,7 @@ class ExerciseTest {
         assertEquals(0.0, bike.getDistance());
         assertEquals("00:00:00", bike.getDuration());
         assertEquals(0.0, bike.getPace());
+        assertEquals(0, bike.getElevation());
     }
 
     @Test
@@ -42,6 +43,7 @@ class ExerciseTest {
         assertEquals(0.0, run.getDistance());
         assertEquals("00:00:00", run.getDuration());
         assertEquals(0.0, run.getPace());
+        assertEquals(0, run.getElevation());
     }
 
     // Tests Title Change
@@ -152,6 +154,54 @@ class ExerciseTest {
         assertEquals(0.0, run.getPace());
         run.setPace(3.0);
         assertEquals(3.0, run.getPace());
+    }
+
+    // testing changing elevation
+
+    @Test
+    void testChangeBikeElevation() {
+        assertEquals(0, bike.getElevation());
+        bike.setElevation(100);
+        assertEquals(100, bike.getElevation());
+    }
+
+    @Test
+    void testChangeRunElevation() {
+        assertEquals(0, run.getElevation());
+        run.setElevation(300);
+        assertEquals(300, run.getElevation());
+    }
+
+    @Test
+    void testConvertDistanceFromKmToMiles() {
+        bike.setDistance(2.0);
+        assertEquals(2.0, bike.getDistance());
+        bike.changeDistanceUnitsToMilesFromKm();
+        assertEquals((2.0 / 1.609), bike.getDistance());
+    }
+
+    @Test
+    void testChangeDistanceUnitsToKmFromMile() {
+        bike.setDistance(2.0);
+        assertEquals(2.0, bike.getDistance());
+        bike.changeDistanceUnitsToKmFromMile();
+        assertEquals((2.0 * 1.609), bike.getDistance());
+    }
+
+    @Test
+    void testChangePaceUnitsToMinPerMile() {
+        bike.setPace(5.0);
+        assertEquals(5.0, bike.getPace());
+        bike.changePaceUnitsToMinPerMile();
+        assertEquals((5.0 * 1.609), bike.getPace());
+    }
+
+    @Test
+    void testChangePaceUnitsToMinPerKm() {
+        bike.setPace(5.0);
+        assertEquals(5.0, bike.getPace());
+        bike.changePaceUnitsToMinPerKm();
+        assertEquals((5.0 / 1.609), bike.getPace());
     }
 
 }

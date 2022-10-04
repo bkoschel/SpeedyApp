@@ -74,11 +74,21 @@ public class Bike extends Exercise {
         this.elevation = elevation;
     }
 
-    public double calculatePace() {
-        return 0.0;
+
+    public void changeDistanceUnitsToMilesFromKm() {
+        distance = distance / 1.609;
     }
 
-    public double changeUnits() {
-        return 0.0;
+    public void changeDistanceUnitsToKmFromMile() {
+        distance = distance * 1.609;
     }
+
+    public void changePaceUnitsToMinPerMile() {
+        pace = pace * 1.609;
+    }
+
+    public void changePaceUnitsToMinPerKm() {
+        pace = pace / 1.609;
+    }
+
 }
