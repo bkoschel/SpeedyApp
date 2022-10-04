@@ -71,4 +71,14 @@ public class Swim extends Exercise {
     public double changeUnits() {
         return 0.0;
     }
+
+    public String toString() {
+        String distanceString = Double.toString(distance);
+        String paceString = Double.toString(pace);
+        return    "Title: " + title
+                + "\n Date: " + date
+                + "\n Distance: " + distanceString + " km"
+                + "\n Duration: " + duration
+                + "\n Pace: " + paceString + " min/km";
+    }
 }

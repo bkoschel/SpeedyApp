@@ -72,5 +72,16 @@ public class Run extends Exercise {
         this.elevation = elevation;
     }
 
+    public String toString() {
+        String distanceString = Double.toString(distance);
+        String paceString = Double.toString(pace);
+        String elevationString = Integer.toString(elevation);
+        return    "Title: " + title
+                + "\n Date: " + date
+                + "\n Distance: " + distanceString + " km"
+                + "\n Duration: " + duration
+                + "\n Pace: " + paceString + " min/km"
+                + "\n Elevation: " + elevationString + " m";
+    }
 
 }

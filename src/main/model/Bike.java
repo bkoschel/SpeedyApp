@@ -91,4 +91,16 @@ public class Bike extends Exercise {
         pace = pace / 1.609;
     }
 
+    public String toString() {
+        String distanceString = Double.toString(distance);
+        String paceString = Double.toString(pace);
+        String elevationString = Integer.toString(elevation);
+        return    "Title: " + title
+                + "\n Date: " + date
+                + "\n Distance: " + distanceString + " km"
+                + "\n Duration: " + duration
+                + "\n Pace: " + paceString + " min/km"
+                + "\n Elevation: " + elevationString + " m";
+    }
+
 }

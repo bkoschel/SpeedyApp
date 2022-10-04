@@ -204,4 +204,25 @@ class ExerciseTest {
         assertEquals((5.0 / 1.609), bike.getPace());
     }
 
+    @Test
+    void testToString() {
+        assertTrue(run.toString().contains("Title: New Run"
+                                        + "\n Date: "
+                                        + "\n Distance: 0.0 km"
+                                        + "\n Duration: 00:00:00"
+                                        + "\n Pace: 0.0 min/km"
+                                        + "\n Elevation: 0 m"));
+        assertTrue(bike.toString().contains("Title: New Bike Ride"
+                                            + "\n Date: "
+                                            + "\n Distance: 0.0 km"
+                                            + "\n Duration: 00:00:00"
+                                            + "\n Pace: 0.0 min/km"
+                                            + "\n Elevation: 0 m"));
+        assertTrue(swim.toString().contains("Title: New Swim"
+                                        + "\n Date: "
+                                        + "\n Distance: 0.0 km"
+                                        + "\n Duration: 00:00:00"
+                                        + "\n Pace: 0.0 min/km"));
+    }
+
 }
