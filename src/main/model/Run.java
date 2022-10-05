@@ -1,11 +1,13 @@
 package model;
 
+import java.sql.*;
+
 // Represents a Run entry having a title, date, distance, duration and pace
 public class Run extends Exercise {
     private String title;
     private String date;
     private double distance;
-    private String duration;
+    private Time duration;
     private double pace;
     private int elevation;
 
@@ -19,7 +21,7 @@ public class Run extends Exercise {
         title = "New Run";
         date = "";
         distance = 0.0;
-        duration = "00:00:00";
+        duration = new Time(0,0,0);
         pace = 0.0;
         elevation = 0;
     }
@@ -37,7 +39,7 @@ public class Run extends Exercise {
     }
 
     public String getDuration() {
-        return duration;
+        return duration.toString();
     }
 
     public double getPace() {
@@ -57,7 +59,7 @@ public class Run extends Exercise {
     }
 
     public void setDuration(String duration) {
-        this.duration = duration;
+        this.duration = Time.valueOf(duration);
     }
 
     public void setDistance(double distance) {

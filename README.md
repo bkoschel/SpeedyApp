@@ -6,14 +6,23 @@
 because I am a runner and I enjoy being able to track my progress in my favourite sport.
 
 ## User Stories:
-- **As a User I want to be able to:** log into Speedy.
 - **As a User I want to be able to:** add a run to my exercise log.
 - **As a User I want to be able to:** add a bike ride to my exercise log.
 - **As a User I want to be able to:** add a swim to my exercise log.
 - **As a User I want to be able to:** remove a run, bike or swim from my exercise log.
-- **As a User I want to be able to:** add data such as distance, speed, duration and heart rate to a run/bike/swim 
+- **As a User I want to be able to:** add data such as date, distance, speed, duration and pace to a run/bike/swim 
   entry.
 - **As a User I want to be able to:** edit the data of a run, bike or swim in my exercise log.
 - **As a User I want to be able to:** give my exercises fun names (e.g. The Coquitlam Crunch).
-- **As a User I want to be able to:** See my progress in distance or duration over time.
+- **As a User I want to be able to:** view my average pace for all my bike rides
+- **As a User I want to be able to:** view my average pace for all my swims
+- **As a User I want to be able to:** view my average pace for all my runs
+- **As a User I want to be able to:** view my total distance for all my bike rides
+- **As a User I want to be able to:** view my total distance for all my runs
+- **As a User I want to be able to:** view my total distance for all my swims
+- **As a User I want to be able to:** view my total time spent on bike rides
+- **As a User I want to be able to:** view my total time spent on runs
+- **As a User I want to be able to:** view my total time spent swimming.
+- **As a User I want to be able to:** view my total elevation for all my bike rides
+- **As a User I want to be able to:** view my total elevation for all my runs.
 
