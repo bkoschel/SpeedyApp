@@ -8,6 +8,7 @@ public class ExercisesTest {
     private Swim swim;
     private Bike bike;
     private Run run;
+    private Bike bike2;
 
     private ExerciseLog exerciseLog;
 
@@ -16,6 +17,7 @@ public class ExercisesTest {
         swim = new Swim();
         bike = new Bike();
         run = new Run();
+        bike2 = new Bike();
 
         exerciseLog = new ExerciseLog();
     }
@@ -48,6 +50,96 @@ public class ExercisesTest {
         assertFalse(exerciseLog.containsExercise(swim));
         exerciseLog.removeExercise(bike);
         assertFalse(exerciseLog.containsExercise(bike));
+    }
+
+    @Test
+    public void testToString() {
+        exerciseLog.addExercise(swim);
+        exerciseLog.addExercise(bike);
+        exerciseLog.addExercise(run);
+        assertEquals("swim bike run", exerciseLog.toString());
+    }
+
+    @Test
+    public void testSumTotalDistance() {
+        swim.setDistance(3.0);
+        bike.setDistance(2.0);
+        run.setDistance(5.0);
+        exerciseLog.addExercise(swim);
+        exerciseLog.addExercise(bike);
+        exerciseLog.addExercise(run);
+        assertEquals(10.0, exerciseLog.sumTotalDistance());
+    }
+
+    @Test
+    public void testSumTotalDuration() {
+        swim.setDuration("01:00:00");
+        bike.setDuration("02:00:00");
+        run.setDuration("03:00:00");
+        exerciseLog.addExercise(swim);
+        exerciseLog.addExercise(bike);
+        exerciseLog.addExercise(run);
+        assertEquals("06:00:00", exerciseLog.sumTotalDuration());
+    }
+
+    @Test
+    public void testSumTotalElevation() {
+        swim.setElevation(3);
+        bike.setElevation(2);
+        run.setElevation(5);
+        exerciseLog.addExercise(swim);
+        exerciseLog.addExercise(bike);
+        exerciseLog.addExercise(run);
+        assertEquals(10, exerciseLog.sumTotalElevation());
+    }
+
+    @Test
+    public void testTotalAveragePace() {
+        swim.setPace(5.0);
+        bike.setPace(2.0);
+        run.setPace(5.0);
+        exerciseLog.addExercise(swim);
+        exerciseLog.addExercise(bike);
+        exerciseLog.addExercise(run);
+        assertEquals(4.0, exerciseLog.averageTotalPace());
+    }
+
+    @Test
+    public void testAverageBikePace() {
+        swim.setPace(5.0);
+        bike.setPace(5.0);
+        run.setPace(5.0);
+        bike2.setPace(5.0);
+        exerciseLog.addExercise(swim);
+        exerciseLog.addExercise(bike);
+        exerciseLog.addExercise(run);
+        exerciseLog.addExercise(bike2);
+        assertEquals(5.0, exerciseLog.averageBikePace());
+    }
+
+    @Test
+    public void testAverageRunPace() {
+        swim.setPace(5.0);
+        run.setPace(5.0);
+        bike.setPace(2.0);
+        run.setPace(5.0);
+        exerciseLog.addExercise(run);
+        exerciseLog.addExercise(swim);
+        exerciseLog.addExercise(bike);
+        exerciseLog.addExercise(run);
+        assertEquals(5.0, exerciseLog.averageRunPace());
+    }
+
+    @Test
+    public void testAverageSwimPace() {
+        swim.setPace(5.0);
+        bike.setPace(2.0);
+        run.setPace(5.0);
+        exerciseLog.addExercise(swim);
+        exerciseLog.addExercise(bike);
+        exerciseLog.addExercise(run);
+        exerciseLog.addExercise(swim);
+        assertEquals(5.0, exerciseLog.averageSwimPace());
     }
 
 }
