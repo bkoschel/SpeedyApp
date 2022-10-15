@@ -2,6 +2,7 @@ package model;
 
 import java.sql.*;
 import java.time.LocalTime;
+import java.util.Calendar;
 
 // Represents a Run entry having a title, date, distance, duration and pace
 public class Run implements Exercise {
@@ -21,7 +22,7 @@ public class Run implements Exercise {
 
     public Run() {
         title = "New Run";
-        date = "";
+        date = "01/01/2022";
         distance = 0.0;
         duration = "00:00:00";
         pace = 0.0;

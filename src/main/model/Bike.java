@@ -20,7 +20,7 @@ public class Bike implements Exercise {
      */
     public Bike() {
         title = "New Bike Ride";
-        date = "";
+        date = "01/01/2022";
         distance = 0.0;
         duration = "00:00:00";
         pace = 0.0;

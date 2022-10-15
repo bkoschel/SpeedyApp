@@ -20,7 +20,7 @@ class ExerciseTest {
     @Test
     void testSwimConstructor() {
         assertEquals("New Swim", swim.getTitle());
-        assertEquals("", swim.getDate());
+        assertEquals("01/01/2022", swim.getDate());
         assertEquals(0.0, swim.getDistance());
         assertEquals("00:00:00", swim.getDuration());
         assertEquals(0.0, swim.getPace());
@@ -29,7 +29,7 @@ class ExerciseTest {
     @Test
     void testBikeConstructor() {
         assertEquals("New Bike Ride", bike.getTitle());
-        assertEquals("", bike.getDate());
+        assertEquals("01/01/2022", bike.getDate());
         assertEquals(0.0, bike.getDistance());
         assertEquals("00:00:00", bike.getDuration());
         assertEquals(0.0, bike.getPace());
@@ -39,7 +39,7 @@ class ExerciseTest {
     @Test
     void testRunConstructor() {
         assertEquals("New Run", run.getTitle());
-        assertEquals("", run.getDate());
+        assertEquals("01/01/2022", run.getDate());
         assertEquals(0.0, run.getDistance());
         assertEquals("00:00:00", run.getDuration());
         assertEquals(0.0, run.getPace());
@@ -71,21 +71,21 @@ class ExerciseTest {
     // testing date change
     @Test
     void testChangeSwimDate() {
-        assertEquals("", swim.getDate());
+        assertEquals("01/01/2022", swim.getDate());
         swim.setDate("10/04/2022");
         assertEquals("10/04/2022", swim.getDate());
     }
 
     @Test
     void testChangeBikeDate() {
-        assertEquals("", bike.getDate());
+        assertEquals("01/01/2022", bike.getDate());
         bike.setDate("10/05/2022");
         assertEquals("10/05/2022", bike.getDate());
     }
 
     @Test
     void testChangeRunDate() {
-        assertEquals("", run.getDate());
+        assertEquals("01/01/2022", run.getDate());
         run.setDate("10/06/2022");
         assertEquals("10/06/2022", run.getDate());
     }
@@ -207,19 +207,19 @@ class ExerciseTest {
     @Test
     void testToString() {
         assertTrue(run.toString().contains("Title: New Run"
-                                        + "\n Date: "
+                                        + "\n Date: 01/01/2022"
                                         + "\n Distance: 0.0 km"
                                         + "\n Duration: 00:00:00"
                                         + "\n Pace: 0.0 min/km"
                                         + "\n Elevation: 0 m"));
         assertTrue(bike.toString().contains("Title: New Bike Ride"
-                                            + "\n Date: "
+                                            + "\n Date: 01/01/2022"
                                             + "\n Distance: 0.0 km"
                                             + "\n Duration: 00:00:00"
                                             + "\n Pace: 0.0 min/km"
                                             + "\n Elevation: 0 m"));
         assertTrue(swim.toString().contains("Title: New Swim"
-                                        + "\n Date: "
+                                        + "\n Date: 01/01/2022"
                                         + "\n Distance: 0.0 km"
                                         + "\n Duration: 00:00:00"
                                         + "\n Pace: 0.0 min/km"));

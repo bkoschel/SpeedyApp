@@ -32,7 +32,7 @@ public class ExerciseLog {
         return exercises.get(i);
     }
 
-    // !!!!! implement Exercises!
+
     public String toString() {
         String exerciseLog = ""; // USE STRING BUILDER
         for (int i = 0; i < exercises.size(); i++) {
@@ -46,13 +46,10 @@ public class ExerciseLog {
         for (int i = 0; i < exercises.size(); i++) {
             totalDistance += exercises.get(i).getDistance();
         }
-        return totalDistance; // stub
+        return totalDistance;
     }
 
 
-    public String sumTotalDuration() {
-        return "";
-    }
 
     public double averageTotalPace() {
         double averagePace = 0;
@@ -107,6 +104,64 @@ public class ExerciseLog {
             }
         }
         return swimPace / num;
+    }
+
+    public double totalBikeDistance() {
+        double totalBikeDistance = 0.0;
+        for (int i = 0; i < exercises.size(); i++) {
+            if (exercises.get(i).getClass() == Bike.class) {
+                totalBikeDistance += exercises.get(i).getDistance();
+
+            }
+        }
+        return totalBikeDistance;
+    }
+
+    public double totalSwimDistance() {
+        double totalSwimDistance = 0.0;
+        for (int i = 0; i < exercises.size(); i++) {
+            if (exercises.get(i).getClass() == Swim.class) {
+                totalSwimDistance += exercises.get(i).getDistance();
+
+            }
+        }
+        return totalSwimDistance;
+    }
+
+    public double totalRunDistance() {
+        double totalRunDistance = 0.0;
+        for (int i = 0; i < exercises.size(); i++) {
+            if (exercises.get(i).getClass() == Run.class) {
+                totalRunDistance += exercises.get(i).getDistance();
+
+            }
+        }
+        return totalRunDistance;
+    }
+
+    // total activity elevation
+
+    public double totalRunElevation() {
+        double totalRunElevation = 0.0;
+        for (int i = 0; i < exercises.size(); i++) {
+            if (exercises.get(i).getClass() == Run.class) {
+                totalRunElevation += exercises.get(i).getElevation();
+
+            }
+        }
+        return totalRunElevation;
+    }
+
+
+    public double totalBikeElevation() {
+        double totalBikeElevation = 0.0;
+        for (int i = 0; i < exercises.size(); i++) {
+            if (exercises.get(i).getClass() == Bike.class) {
+                totalBikeElevation += exercises.get(i).getElevation();
+
+            }
+        }
+        return totalBikeElevation;
     }
 
 }

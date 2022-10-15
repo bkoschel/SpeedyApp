@@ -19,7 +19,7 @@ public class Swim implements Exercise {
     */
     public Swim() {
         title = "New Swim";
-        date = "";
+        date = "01/01/2022";
         distance = 0.0;
         duration = "00:00:00";
         pace = 0.0;

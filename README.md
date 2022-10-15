@@ -10,7 +10,7 @@ because I am a runner and I enjoy being able to track my progress in my favourit
 - **As a User I want to be able to:** add a bike ride to my exercise log.
 - **As a User I want to be able to:** add a swim to my exercise log.
 - **As a User I want to be able to:** remove a run, bike or swim from my exercise log.
-- **As a User I want to be able to:** add data such as date, distance, speed, duration and pace to a run/bike/swim 
+- **As a User I want to be able to:** add data such as date, distance, duration and pace to a run/bike/swim 
   entry.
 - **As a User I want to be able to:** edit the data of a run, bike or swim in my exercise log.
 - **As a User I want to be able to:** give my exercises fun names (e.g. The Coquitlam Crunch).
