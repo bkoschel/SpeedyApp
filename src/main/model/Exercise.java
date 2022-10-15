@@ -1,14 +1,13 @@
 package model;
 
-import java.time.LocalTime;
 
 public interface Exercise {
 
-    public String getTitle();
+    String getTitle();
 
-    public String getDate();
+    String getDate();
 
-    public double getDistance();
+    double getDistance();
 
     public String getDuration();
 

@@ -52,16 +52,19 @@ public class ExercisesTest {
         assertFalse(exerciseLog.containsExercise(bike));
     }
 
-    /*
+
     @Test
     public void testToString() {
         exerciseLog.addExercise(swim);
         exerciseLog.addExercise(bike);
         exerciseLog.addExercise(run);
-        assertEquals("swim bike run", exerciseLog.toString());
+        assertEquals("My Activities: \n" +
+                             "New Swim\n" +
+                             "New Bike Ride\n" +
+                             "New Run\n", exerciseLog.toString());
     }
 
-     */
+
 
     @Test
     public void testSumTotalDistance() {

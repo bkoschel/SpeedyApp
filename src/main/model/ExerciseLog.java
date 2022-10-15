@@ -34,11 +34,11 @@ public class ExerciseLog {
 
 
     public String toString() {
-        String exerciseLog = ""; // USE STRING BUILDER
+        StringBuilder exerciseLog =  new StringBuilder("My Activities: \n");
         for (int i = 0; i < exercises.size(); i++) {
-            exercises.get(i).getTitle();
+            exerciseLog.append(exercises.get(i).getTitle()).append("\n");
         }
-        return exerciseLog;
+        return exerciseLog.toString();
     }
 
     public double sumTotalDistance() {
