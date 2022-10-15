@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,9 +49,9 @@ public class ExerciseLog {
         return totalDistance; // stub
     }
 
-    // !! USE STRING/INTEGER PARSING
+
     public String sumTotalDuration() {
-        return ""; // stub
+        return "";
     }
 
     public double averageTotalPace() {

@@ -1,63 +1,42 @@
 package model;
 
-public class Exercise {
-    private String title;
-    private String date;
-    private double distance;
-    private String duration;
-    private double pace;
-    private int elevation;
+import java.time.LocalTime;
 
-    public Exercise() {
+public interface Exercise {
 
-    }
+    public String getTitle();
 
-    public String getTitle() {
-        return title;
-    }
+    public String getDate();
 
-    public String getDate() {
-        return date;
-    }
+    public double getDistance();
 
-    public double getDistance() {
-        return distance;
-    }
+    public String getDuration();
 
-    public String getDuration() {
-        return duration;
-    }
+    public double getPace();
 
-    public double getPace() {
-        return pace;
-    }
+    public int getElevation();
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public void setTitle(String title);
 
-    public void setDate(String date) {
-        this.date = date;
-    }
+    public void setDate(String date);
 
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
+    public void setDuration(String duration);
 
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
+    public void setDistance(double distance);
 
-    public void setPace(double pace) {
-        this.pace = pace;
-    }
+    public void setPace(double pace);
 
-    public int getElevation() {
-        return elevation;
-    }
+    public void setElevation(int elevation);
 
-    public void setElevation(int elevation) {
-        this.elevation = elevation;
-    }
+
+    public void changeDistanceUnitsToMilesFromKm();
+
+    public void changeDistanceUnitsToKmFromMile();
+
+    public void changePaceUnitsToMinPerMile();
+
+    public void changePaceUnitsToMinPerKm();
+
+    public String toString();
 
 }

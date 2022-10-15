@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class ExerciseTest {
-    private Swim swim;
-    private Bike bike;
-    private Run run;
+    private Exercise swim;
+    private Exercise bike;
+    private Exercise run;
 
     @BeforeEach
     void setUp() {

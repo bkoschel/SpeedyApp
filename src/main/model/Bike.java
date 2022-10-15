@@ -1,7 +1,10 @@
 package model;
 
+import java.sql.*;
+import java.time.LocalTime;
+
 // Represents a Bike entry having a title, date, distance, duration and pace
-public class Bike extends Exercise {
+public class Bike implements Exercise {
     private String title;
     private String date;
     private double distance;
@@ -13,7 +16,7 @@ public class Bike extends Exercise {
      * REQUIRES: pace, distance, duration, and elevation must be non-negative values
      * EFFECTS: sets the title of the swimming activity to default 'New Bike'; Sets the date to current
      * date and time; sets the distance to 0.0km; sets the duration to 00(hours):00(minutes):00(seconds);
-     * sets the pace to 0:00/km; sets the elevation to 0 meters;
+     * sets the pace to 0:00 min/km; sets the elevation to 0 meters;
      */
     public Bike() {
         title = "New Bike Ride";
@@ -24,7 +27,6 @@ public class Bike extends Exercise {
         elevation = 0;
     }
 
-    // getters
     public String getTitle() {
         return title;
     }
@@ -49,7 +51,6 @@ public class Bike extends Exercise {
         return elevation;
     }
 
-    // setters
     public void setTitle(String title) {
         this.title = title;
     }
@@ -90,6 +91,8 @@ public class Bike extends Exercise {
     public void changePaceUnitsToMinPerKm() {
         pace = pace / 1.609;
     }
+
+
 
     public String toString() {
         String distanceString = Double.toString(distance);

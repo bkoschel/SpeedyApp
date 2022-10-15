@@ -1,13 +1,14 @@
 package model;
 
 import java.sql.*;
+import java.time.LocalTime;
 
 // Represents a Run entry having a title, date, distance, duration and pace
-public class Run extends Exercise {
+public class Run implements Exercise {
     private String title;
     private String date;
     private double distance;
-    private Time duration;
+    private String duration;
     private double pace;
     private int elevation;
 
@@ -15,13 +16,14 @@ public class Run extends Exercise {
      * REQUIRES: pace, distance, duration, and elevation must be non-negative values
      * EFFECTS: sets the title of the swimming activity to default 'New Run'; Sets the date to current
      * date and time; sets the distance to 0.0km; sets the duration to 00(hours):00(minutes):00(seconds);
-     * sets the pace to 0:00/km; sets the elevation to 0 meters;
+     * sets the pace to 0:00 min/km; sets the elevation to 0 meters;
      */
+
     public Run() {
         title = "New Run";
         date = "";
         distance = 0.0;
-        duration = new Time(0,0,0);
+        duration = "00:00:00";
         pace = 0.0;
         elevation = 0;
     }
@@ -39,7 +41,7 @@ public class Run extends Exercise {
     }
 
     public String getDuration() {
-        return duration.toString();
+        return duration;
     }
 
     public double getPace() {
@@ -59,7 +61,7 @@ public class Run extends Exercise {
     }
 
     public void setDuration(String duration) {
-        this.duration = Time.valueOf(duration);
+        this.duration = duration;
     }
 
     public void setDistance(double distance) {
@@ -72,6 +74,23 @@ public class Run extends Exercise {
 
     public void setElevation(int elevation) {
         this.elevation = elevation;
+    }
+
+
+    public void changeDistanceUnitsToMilesFromKm() {
+        distance = distance / 1.609;
+    }
+
+    public void changeDistanceUnitsToKmFromMile() {
+        distance = distance * 1.609;
+    }
+
+    public void changePaceUnitsToMinPerMile() {
+        pace = pace * 1.609;
+    }
+
+    public void changePaceUnitsToMinPerKm() {
+        pace = pace / 1.609;
     }
 
     public String toString() {

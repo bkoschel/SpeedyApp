@@ -1,7 +1,10 @@
 package model;
 
+import java.sql.Time;
+import java.time.LocalTime;
+
 // Represents a Swim entry having a title, date, distance, duration and pace
-public class Swim extends Exercise {
+public class Swim implements Exercise {
     private String title;
     private String date;
     private double distance;
@@ -36,11 +39,16 @@ public class Swim extends Exercise {
     }
 
     public String getDuration() {
-        return duration;
+        return duration.toString();
     }
 
     public double getPace() {
         return pace;
+    }
+
+    @Override
+    public int getElevation() {
+        return 0;
     }
 
     // setters
@@ -64,13 +72,31 @@ public class Swim extends Exercise {
         this.pace = pace;
     }
 
-    public double calculatePace() {
-        return 0.0;
+    @Override
+    public void setElevation(int elevation) {
+
     }
 
-    public double changeUnits() {
-        return 0.0;
+    @Override
+    public void changeDistanceUnitsToMilesFromKm() {
+
     }
+
+    @Override
+    public void changeDistanceUnitsToKmFromMile() {
+
+    }
+
+    @Override
+    public void changePaceUnitsToMinPerMile() {
+
+    }
+
+    @Override
+    public void changePaceUnitsToMinPerKm() {
+
+    }
+
 
     public String toString() {
         String distanceString = Double.toString(distance);
