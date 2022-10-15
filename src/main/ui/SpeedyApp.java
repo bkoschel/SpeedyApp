@@ -1,19 +1,14 @@
 package ui;
 
 
-import model.Bike;
-import model.ExerciseLog;
-import model.Run;
-import model.Swim;
+import model.*;
 
 import java.util.Scanner;
 
 public class SpeedyApp {
     private Scanner input;
     private ExerciseLog exerciseLog;
-    private Bike bike;
-    private Swim swim;
-    private Run run;
+    private Exercise user;
     private boolean exit;
 
     SpeedyApp() {
@@ -74,23 +69,91 @@ public class SpeedyApp {
     }
 
     private void displayActivities() {
-        exerciseLog.toString();
+        System.out.println(exerciseLog.toString());
     }
 
     private void addActivity() {
         String activity;
-        Swim swim;
-        Bike bike;
-        Run run;
         System.out.println("Was your activity a Swim, Bike Ride or Run?");
         activity = input.next();
         if (activity.equals("Swim")) {
-            swim = new Swim();
+            Swim swim = createNewSwim();
+            exerciseLog.addExercise(swim);
         } else if (activity.equals("Bike Ride")) {
-            bike = new Bike();
+            Bike bike = createNewBike();
+            exerciseLog.addExercise(bike);
         } else if (activity.equals("Run")) {
-            run = new Run();
+            Run run = createNewRun();
+            exerciseLog.addExercise(run);
         }
+
+    }
+
+
+    private Swim createNewSwim() {
+        Swim swim = new Swim();
+        System.out.println("What is the title of your swim?");
+        String title = input.next();
+        swim.setTitle(title);
+        System.out.println("What date did you complete your swim? DD/MM/YYYY");
+        String date = input.next();
+        swim.setDate(date);
+        System.out.println("How long was your swim? HH:MM:SS");
+        String duration = input.next();
+        swim.setDuration(duration);
+        System.out.println("What distance did you swim? 00.00 km");
+        Double distance = input.nextDouble();
+        swim.setDistance(distance);
+        System.out.println("What pace did you swim? 00.00 min/km");
+        Double pace = input.nextDouble();
+        swim.setPace(pace);
+        return swim;
+    }
+
+    private Bike createNewBike() {
+        Bike bike = new Bike();
+        System.out.println("What is the title of your bike ride?");
+        String title = input.next();
+        bike.setTitle(title);
+        System.out.println("What date did you complete your bike ride? DD/MM/YYYY");
+        String date = input.next();
+        bike.setDate(date);
+        System.out.println("How long was your bike ride? HH:MM:SS");
+        String duration = input.next();
+        bike.setDuration(duration);
+        System.out.println("What distance did you ride? 00.00 km");
+        double distance = input.nextDouble();
+        bike.setDistance(distance);
+        System.out.println("What pace was your bike ride? 00.00 min/km");
+        double pace = input.nextDouble();
+        bike.setPace(pace);
+        System.out.println("What elevation was your bike ride in meters? ");
+        int elevation = input.nextInt();
+        bike.setElevation(elevation);
+        return bike;
+    }
+
+    private Run createNewRun() {
+        Run run = new Run();
+        System.out.println("What is the title of your run?");
+        String title = input.next();
+        run.setTitle(title);
+        System.out.println("What date did you complete your run? DD/MM/YYYY");
+        String date = input.next();
+        run.setDate(date);
+        System.out.println("How long was your run? HH:MM:SS");
+        String duration = input.next();
+        run.setDuration(duration);
+        System.out.println("What distance did you run? 00.00 km");
+        double distance = input.nextDouble();
+        run.setDistance(distance);
+        System.out.println("What pace was your run? 00.00 min/km");
+        double pace = input.nextDouble();
+        run.setPace(pace);
+        System.out.println("What elevation was your run in meters?");
+        int elevation = input.nextInt();
+        run.setElevation(elevation);
+        return run;
     }
 
     private void goBack() {
