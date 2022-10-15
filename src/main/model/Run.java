@@ -78,22 +78,6 @@ public class Run implements Exercise {
     }
 
 
-    public void changeDistanceUnitsToMilesFromKm() {
-        distance = distance / 1.609;
-    }
-
-    public void changeDistanceUnitsToKmFromMile() {
-        distance = distance * 1.609;
-    }
-
-    public void changePaceUnitsToMinPerMile() {
-        pace = pace * 1.609;
-    }
-
-    public void changePaceUnitsToMinPerKm() {
-        pace = pace / 1.609;
-    }
-
     public String toString() {
         String distanceString = Double.toString(distance);
         String paceString = Double.toString(pace);

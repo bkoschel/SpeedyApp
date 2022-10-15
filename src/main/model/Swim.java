@@ -77,27 +77,6 @@ public class Swim implements Exercise {
 
     }
 
-    @Override
-    public void changeDistanceUnitsToMilesFromKm() {
-
-    }
-
-    @Override
-    public void changeDistanceUnitsToKmFromMile() {
-
-    }
-
-    @Override
-    public void changePaceUnitsToMinPerMile() {
-
-    }
-
-    @Override
-    public void changePaceUnitsToMinPerKm() {
-
-    }
-
-
     public String toString() {
         String distanceString = Double.toString(distance);
         String paceString = Double.toString(pace);

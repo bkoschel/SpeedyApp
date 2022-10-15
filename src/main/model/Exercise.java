@@ -9,33 +9,24 @@ public interface Exercise {
 
     double getDistance();
 
-    public String getDuration();
+    String getDuration();
 
-    public double getPace();
+    double getPace();
 
-    public int getElevation();
+    int getElevation();
 
-    public void setTitle(String title);
+    void setTitle(String title);
 
-    public void setDate(String date);
+    void setDate(String date);
 
-    public void setDuration(String duration);
+    void setDuration(String duration);
 
-    public void setDistance(double distance);
+    void setDistance(double distance);
 
-    public void setPace(double pace);
+    void setPace(double pace);
 
-    public void setElevation(int elevation);
+    void setElevation(int elevation);
 
-
-    public void changeDistanceUnitsToMilesFromKm();
-
-    public void changeDistanceUnitsToKmFromMile();
-
-    public void changePaceUnitsToMinPerMile();
-
-    public void changePaceUnitsToMinPerKm();
-
-    public String toString();
+    String toString();
 
 }

@@ -172,37 +172,6 @@ class ExerciseTest {
         assertEquals(300, run.getElevation());
     }
 
-    @Test
-    void testConvertDistanceFromKmToMiles() {
-        bike.setDistance(2.0);
-        assertEquals(2.0, bike.getDistance());
-        bike.changeDistanceUnitsToMilesFromKm();
-        assertEquals((2.0 / 1.609), bike.getDistance());
-    }
-
-    @Test
-    void testChangeDistanceUnitsToKmFromMile() {
-        bike.setDistance(2.0);
-        assertEquals(2.0, bike.getDistance());
-        bike.changeDistanceUnitsToKmFromMile();
-        assertEquals((2.0 * 1.609), bike.getDistance());
-    }
-
-    @Test
-    void testChangePaceUnitsToMinPerMile() {
-        bike.setPace(5.0);
-        assertEquals(5.0, bike.getPace());
-        bike.changePaceUnitsToMinPerMile();
-        assertEquals((5.0 * 1.609), bike.getPace());
-    }
-
-    @Test
-    void testChangePaceUnitsToMinPerKm() {
-        bike.setPace(5.0);
-        assertEquals(5.0, bike.getPace());
-        bike.changePaceUnitsToMinPerKm();
-        assertEquals((5.0 / 1.609), bike.getPace());
-    }
 
     @Test
     void testToString() {
