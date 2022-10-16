@@ -77,7 +77,7 @@ public class Run implements Exercise {
         this.elevation = elevation;
     }
 
-
+    // EFFECTS: returns a string representation of a run
     public String toString() {
         String distanceString = Double.toString(distance);
         String paceString = Double.toString(pace);

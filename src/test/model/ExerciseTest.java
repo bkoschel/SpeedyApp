@@ -24,6 +24,7 @@ class ExerciseTest {
         assertEquals(0.0, swim.getDistance());
         assertEquals("00:00:00", swim.getDuration());
         assertEquals(0.0, swim.getPace());
+        assertEquals(0, swim.getElevation());
     }
 
     @Test
@@ -170,6 +171,13 @@ class ExerciseTest {
         assertEquals(0, run.getElevation());
         run.setElevation(300);
         assertEquals(300, run.getElevation());
+    }
+
+    @Test
+    void testChangeSwimElevation() {
+        assertEquals(0, swim.getElevation());
+        swim.setElevation(1);
+        assertEquals(1, swim.getElevation());
     }
 
 

@@ -75,7 +75,7 @@ public class Bike implements Exercise {
         this.elevation = elevation;
     }
 
-
+    // EFFECTS: returns a string representation of a bike
     public String toString() {
         String distanceString = Double.toString(distance);
         String paceString = Double.toString(pace);

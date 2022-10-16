@@ -10,9 +10,11 @@ public class Swim implements Exercise {
     private double distance;
     private String duration;
     private double pace;
+    private int elevation;
 
     /*
-    * REQUIRES: pace, distance and duration must be non-negative values
+    * REQUIRES: pace and distance must be non-negative numbers with at least one decimal place. Elevation must be an
+    * integer.
     * EFFECTS: sets the title of the swimming activity to default 'New Swim'; Sets the date to current
     * date and time; sets the distance to 0.0km; sets the duration to 00(hours):00(minutes):00(seconds);
     * sets the pace to 0:00/km
@@ -23,6 +25,7 @@ public class Swim implements Exercise {
         distance = 0.0;
         duration = "00:00:00";
         pace = 0.0;
+        elevation = 0;
     }
 
     // getters
@@ -39,7 +42,7 @@ public class Swim implements Exercise {
     }
 
     public String getDuration() {
-        return duration.toString();
+        return duration;
     }
 
     public double getPace() {
@@ -48,7 +51,7 @@ public class Swim implements Exercise {
 
     @Override
     public int getElevation() {
-        return 0;
+        return elevation;
     }
 
     // setters
@@ -74,9 +77,10 @@ public class Swim implements Exercise {
 
     @Override
     public void setElevation(int elevation) {
-
+        this.elevation = elevation;
     }
 
+    // EFFECTS: returns a string representation of a swim
     public String toString() {
         String distanceString = Double.toString(distance);
         String paceString = Double.toString(pace);

@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// Exercise log represents a list of exercises (biking, running, and swimming) and the methods
+// tha can be used to perform operations on a list of exercises such as addExercise and removeExercise
 public class ExerciseLog {
     private List<Exercise> exercises;
 
@@ -27,6 +29,7 @@ public class ExerciseLog {
         return exercises.contains(exercise);
     }
 
+    // EFFECTS:
     public Exercise getExercise(String title) {
         Exercise e = null;
         for (Exercise exercise : exercises) {
@@ -35,10 +38,6 @@ public class ExerciseLog {
             }
         }
         return e;
-    }
-
-    public int exerciseLogSize() {
-        return exercises.size();
     }
 
 
