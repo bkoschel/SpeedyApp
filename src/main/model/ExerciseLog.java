@@ -27,13 +27,22 @@ public class ExerciseLog {
         return exercises.contains(exercise);
     }
 
+    public List<Exercise> viewExercises() {
+        return exercises;
+    }
+
     public Exercise getExercise(String title) {
-        for (int i = 0; i < exercises.size(); i++) {
-            if (exercises.get(i).getTitle() == title) {
-                return exercises.get(i);
+        Exercise e = null;
+        for (Exercise exercise : exercises) {
+            if (exercise.getTitle().equals(title)) {
+                e = exercise;
             }
         }
-        return null;
+        return e;
+    }
+
+    public int exerciseLogSize() {
+        return exercises.size();
     }
 
 

@@ -206,6 +206,8 @@ public class ExercisesTest {
         exerciseLog.addExercise(swim);
         assertTrue(exerciseLog.containsExercise(swim));
         assertEquals(swim, exerciseLog.getExercise("New Swim"));
+        exerciseLog.removeExercise(exerciseLog.getExercise("New Run"));
+        assertFalse(exerciseLog.containsExercise(run));
     }
 
 }

@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class SpeedyApp {
     private Scanner input;
     private ExerciseLog exerciseLog;
-    private Exercise user;
     private boolean exit;
 
     SpeedyApp() {
@@ -17,7 +16,7 @@ public class SpeedyApp {
 
     private void runSpeedy() {
         exit = false;
-        String command = null;
+        String command;
         
         initiate();
         
@@ -48,6 +47,7 @@ public class SpeedyApp {
         System.out.println("\tr -> Remove Activity From Exercise Log");
         System.out.println("\te -> Edit Activity");
         System.out.println("\ts -> Select Activity by Name");
+        System.out.println("\tt -> View Stats");
         System.out.println("\tx -> Exit");
     }
 
@@ -62,6 +62,8 @@ public class SpeedyApp {
             editActivity();
         } else if (command.equals("s")) {
             selectActivity();
+        }  else if (command.equals("t")) {
+            viewStats();
         } else if (command.equals("x")) {
             exit = true;
         } else {
@@ -103,10 +105,10 @@ public class SpeedyApp {
         String duration = input.next();
         swim.setDuration(duration);
         System.out.println("What distance did you swim? 00.00 km");
-        Double distance = input.nextDouble();
+        double distance = input.nextDouble();
         swim.setDistance(distance);
         System.out.println("What pace did you swim? 00.00 min/km");
-        Double pace = input.nextDouble();
+        double pace = input.nextDouble();
         swim.setPace(pace);
         return swim;
     }
@@ -158,7 +160,7 @@ public class SpeedyApp {
     }
 
 
-
+// Assumes that activity exists
     private void editActivity() {
         System.out.println("Please enter the title of the activity you would like to edit:");
         String title = input.next();
@@ -182,59 +184,75 @@ public class SpeedyApp {
     }
 
     private void updateTitle(Exercise exercise) {
-        System.out.println("Input " + exercise.getTitle() + "'s" + "new Title:");
+        System.out.println("Input " + exercise.getTitle() + "'s " + "new Title:");
         String newTitle = input.next();
         exercise.setTitle(newTitle);
         System.out.println("New Title: " + newTitle);
     }
 
     private void updateDate(Exercise exercise) {
-        System.out.println("Input " + exercise.getDate() + "'s" + "new Date:");
+        System.out.println("Input " + exercise.getTitle() + "'s " + "new Date: DD/MM/YYYY");
         String newDate = input.next();
         exercise.setDate(newDate);
         System.out.println("New Date: " + newDate);
     }
 
     private void updateDuration(Exercise exercise) {
-        System.out.println("Input " + exercise.getDuration() + "'s" + "new Duration");
+        System.out.println("Input " + exercise.getTitle() + "'s " + "new Duration: HH:MM:SS");
         String newDuration = input.next();
         exercise.setDuration(newDuration);
         System.out.println("New Duration: " + newDuration);
     }
 
     private void updateDistance(Exercise exercise) {
-        System.out.println("Input " + exercise.getDistance() + "'s" + "new Distance");
+        System.out.println("Input " + exercise.getTitle() + "'s " + "new Distance: 0.0 km");
         double newDistance = input.nextDouble();
         exercise.setDistance(newDistance);
         System.out.println("New Distance: " + newDistance);
     }
 
     private void updatePace(Exercise exercise) {
-        System.out.println("Input " + exercise.getPace() + "'s" + "new Pace");
+        System.out.println("Input " + exercise.getTitle() + "'s " + "new Pace: 0.0 min/km");
         double newPace = input.nextDouble();
         exercise.setPace(newPace);
         System.out.println("New Pace: " + newPace);
     }
 
     private void updateElevation(Exercise exercise) {
-        System.out.println("Input " + exercise.getElevation() + "'s" + "new Elevation");
+        System.out.println("Input " + exercise.getTitle() + "'s" + "new Elevation: meters");
         int newElevation = input.nextInt();
         exercise.setElevation(newElevation);
         System.out.println("New Elevation: " + newElevation);
     }
 
     private void selectActivity() {
+        System.out.println(exerciseLog.toString());
         System.out.println("Please enter the title of the activity you would like to view:");
         String title = input.next();
         System.out.println(exerciseLog.getExercise(title).toString());
     }
 
     private void removeActivity() {
+        System.out.println(exerciseLog.toString());
         System.out.println("Please enter the title of the activity you would like to remove:");
         String title = input.next();
-        exerciseLog.removeExercise(exerciseLog.getExercise(title));
+        Exercise exercise = exerciseLog.getExercise(title);
+        exerciseLog.removeExercise(exercise);
+        System.out.println(exerciseLog.toString());
     }
 
-
+    private void viewStats() {
+        System.out.println("Total Average Pace For All Activities: " + exerciseLog.averageTotalPace());
+        System.out.println("Total Distance Covered For All Activities: " + exerciseLog.sumTotalDistance());
+        System.out.println("Total Elevation For All Activities: " + exerciseLog.sumTotalElevation());
+        System.out.println("Average Swimming Pace: " + exerciseLog.averageSwimPace());
+        System.out.println("Total Swimming Distance: " + exerciseLog.totalSwimDistance());
+        System.out.println("Average Biking Pace: " + exerciseLog.averageBikePace());
+        System.out.println("Total Biking Distance: " + exerciseLog.totalBikeDistance());
+        System.out.println("Total Biking Elevation: " + exerciseLog.totalBikeElevation());
+        System.out.println("Average Running Pace: " + exerciseLog.averageRunPace());
+        System.out.println("Total Running Distance: " + exerciseLog.totalRunDistance());
+        System.out.println("Total Running Elevation: " + exerciseLog.totalRunElevation());
+    }
 
 }
