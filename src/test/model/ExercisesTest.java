@@ -199,4 +199,13 @@ public class ExercisesTest {
         assertEquals(10, exerciseLog.totalRunElevation());
     }
 
+    @Test
+    public void testGetExercise() {
+        exerciseLog.addExercise(run);
+        exerciseLog.addExercise(bike);
+        exerciseLog.addExercise(swim);
+        assertTrue(exerciseLog.containsExercise(swim));
+        assertEquals(swim, exerciseLog.getExercise("New Swim"));
+    }
+
 }

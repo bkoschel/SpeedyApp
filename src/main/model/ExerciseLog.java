@@ -27,8 +27,13 @@ public class ExerciseLog {
         return exercises.contains(exercise);
     }
 
-    public Exercise getExercise(int i) {
-        return exercises.get(i);
+    public Exercise getExercise(String title) {
+        for (int i = 0; i < exercises.size(); i++) {
+            if (exercises.get(i).getTitle() == title) {
+                return exercises.get(i);
+            }
+        }
+        return null;
     }
 
 

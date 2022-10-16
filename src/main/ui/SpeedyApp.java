@@ -47,6 +47,7 @@ public class SpeedyApp {
         System.out.println("\ta -> Add Activity to Exercise Log");
         System.out.println("\tr -> Remove Activity From Exercise Log");
         System.out.println("\te -> Edit Activity");
+        System.out.println("\ts -> Select Activity by Name");
         System.out.println("\tx -> Exit");
     }
 
@@ -59,8 +60,8 @@ public class SpeedyApp {
             removeActivity();
         } else if (command.equals("e")) {
             editActivity();
-        } else if (command.equals("b")) {
-            goBack();
+        } else if (command.equals("s")) {
+            selectActivity();
         } else if (command.equals("x")) {
             exit = true;
         } else {
@@ -156,19 +157,82 @@ public class SpeedyApp {
         return run;
     }
 
-    private void goBack() {
-    }
+
 
     private void editActivity() {
+        System.out.println("Please enter the title of the activity you would like to edit:");
+        String title = input.next();
+        Exercise exercise = exerciseLog.getExercise(title);
+        System.out.println("Which feature do you wish to edit? (Title, Date, Duration, Distance, Pace, or Elevation)");
+        String category = input.next();
+        if (category.equals("Title")) {
+            updateTitle(exercise);
+        } else if (category.equals("Date")) {
+            updateDate(exercise);
+        } else if (category.equals("Duration")) {
+            updateDuration(exercise);
+        } else if (category.equals("Distance")) {
+            updateDistance(exercise);
+        } else if (category.equals("Pace")) {
+            updatePace(exercise);
+        } else if (category.equals("Elevation")) {
+            updateElevation(exercise);
+        }
+        System.out.println("Activity Updated");
+    }
+
+    private void updateTitle(Exercise exercise) {
+        System.out.println("Input " + exercise.getTitle() + "'s" + "new Title:");
+        String newTitle = input.next();
+        exercise.setTitle(newTitle);
+        System.out.println("New Title: " + newTitle);
+    }
+
+    private void updateDate(Exercise exercise) {
+        System.out.println("Input " + exercise.getDate() + "'s" + "new Date:");
+        String newDate = input.next();
+        exercise.setDate(newDate);
+        System.out.println("New Date: " + newDate);
+    }
+
+    private void updateDuration(Exercise exercise) {
+        System.out.println("Input " + exercise.getDuration() + "'s" + "new Duration");
+        String newDuration = input.next();
+        exercise.setDuration(newDuration);
+        System.out.println("New Duration: " + newDuration);
+    }
+
+    private void updateDistance(Exercise exercise) {
+        System.out.println("Input " + exercise.getDistance() + "'s" + "new Distance");
+        double newDistance = input.nextDouble();
+        exercise.setDistance(newDistance);
+        System.out.println("New Distance: " + newDistance);
+    }
+
+    private void updatePace(Exercise exercise) {
+        System.out.println("Input " + exercise.getPace() + "'s" + "new Pace");
+        double newPace = input.nextDouble();
+        exercise.setPace(newPace);
+        System.out.println("New Pace: " + newPace);
+    }
+
+    private void updateElevation(Exercise exercise) {
+        System.out.println("Input " + exercise.getElevation() + "'s" + "new Elevation");
+        int newElevation = input.nextInt();
+        exercise.setElevation(newElevation);
+        System.out.println("New Elevation: " + newElevation);
     }
 
     private void selectActivity() {
-        String selection = "";
-
-
+        System.out.println("Please enter the title of the activity you would like to view:");
+        String title = input.next();
+        System.out.println(exerciseLog.getExercise(title).toString());
     }
 
     private void removeActivity() {
+        System.out.println("Please enter the title of the activity you would like to remove:");
+        String title = input.next();
+        exerciseLog.removeExercise(exerciseLog.getExercise(title));
     }
 
 
