@@ -27,10 +27,6 @@ public class ExerciseLog {
         return exercises.contains(exercise);
     }
 
-    public List<Exercise> viewExercises() {
-        return exercises;
-    }
-
     public Exercise getExercise(String title) {
         Exercise e = null;
         for (Exercise exercise : exercises) {

@@ -240,7 +240,7 @@ public class SpeedyApp {
         exerciseLog.removeExercise(exercise);
         System.out.println(exerciseLog.toString());
     }
-
+    
     private void viewStats() {
         System.out.println("Total Average Pace For All Activities: " + exerciseLog.averageTotalPace());
         System.out.println("Total Distance Covered For All Activities: " + exerciseLog.sumTotalDistance());
