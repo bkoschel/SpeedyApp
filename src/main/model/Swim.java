@@ -1,9 +1,7 @@
 package model;
 
-import java.sql.Time;
-import java.time.LocalTime;
 
-// Represents a Swim entry having a title, date, distance, duration and pace
+// Represents a Swim entry having a title, date, distance, duration, pace and elevation
 public class Swim implements Exercise {
     private String title;
     private String date;
@@ -55,14 +53,18 @@ public class Swim implements Exercise {
     }
 
     // setters
+    // REQUIRES: title must have unique name
     public void setTitle(String title) {
         this.title = title;
     }
 
+    // REQUIRES: that the date entered is a valid date following this form DD/MM/YYYY (for example 15/03/2022
+    //           and not 37/13/0009
     public void setDate(String date) {
         this.date = date;
     }
 
+    // REQUIRES: that the duration entered is a valid date following this form HH:MM:SS
     public void setDuration(String duration) {
         this.duration = duration;
     }

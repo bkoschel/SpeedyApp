@@ -1,7 +1,6 @@
 package model;
 
-import java.sql.*;
-import java.time.LocalTime;
+
 
 // Represents a Bike entry having a title, date, distance, duration and pace
 public class Bike implements Exercise {
@@ -51,14 +50,18 @@ public class Bike implements Exercise {
         return elevation;
     }
 
+    // REQUIRES: title must have unique name
     public void setTitle(String title) {
         this.title = title;
     }
 
+    // REQUIRES: that the date entered is a valid date following this form DD/MM/YYYY (for example 15/03/2022
+    //           and not 37/13/0009
     public void setDate(String date) {
         this.date = date;
     }
 
+    // REQUIRES: that the duration entered is a valid date following this form HH:MM:SS
     public void setDuration(String duration) {
         this.duration = duration;
     }
