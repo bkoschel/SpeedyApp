@@ -20,3 +20,6 @@ because I am a runner and I enjoy being able to track my progress in my favourit
 - **As a User I want to be able to:** view my total distance for all my bike rides, runs, and swims.
 - **As a User I want to be able to:** view my total elevation for all my bike rides and runs (swims do not apply)
 
+- **As a User I want to be able to:** save their exercise log.
+- **As a User I want to be able to:** load an exercise log.
+
