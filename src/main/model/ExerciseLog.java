@@ -1,5 +1,9 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.JsonWriter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -177,4 +181,17 @@ public class ExerciseLog {
         return totalBikeElevation;
     }
 
+    public JSONObject toJson() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("exercises", exercisesToJson());
+        return jsonObject;
+    }
+
+    private JSONArray exercisesToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (Exercise e : exercises) {
+            jsonArray.put(e.toJson());
+        }
+        return jsonArray;
+    }
 }

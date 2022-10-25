@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 // Represents an Exercise entry having a title, date, distance, duration and pace
 public interface Exercise {
 
@@ -35,5 +37,7 @@ public interface Exercise {
 
     // EFFECTS: returns a string representation of an exercise
     String toString();
+
+    JSONObject toJson();
 
 }

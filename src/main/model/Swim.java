@@ -1,6 +1,8 @@
 package model;
 
 
+import org.json.JSONObject;
+
 // Represents a Swim entry having a title, date, distance, duration, pace and elevation
 public class Swim implements Exercise {
     private String title;
@@ -9,6 +11,7 @@ public class Swim implements Exercise {
     private String duration;
     private double pace;
     private int elevation;
+    private String activity;
 
     /*
     * REQUIRES: pace and distance must be non-negative numbers with at least one decimal place. Elevation must be an
@@ -24,6 +27,7 @@ public class Swim implements Exercise {
         duration = "00:00:00";
         pace = 0.0;
         elevation = 0;
+        activity = "swim";
     }
 
     // getters
@@ -91,5 +95,17 @@ public class Swim implements Exercise {
                 + "\n Distance: " + distanceString + " km"
                 + "\n Duration: " + duration
                 + "\n Pace: " + paceString + " min/km";
+    }
+
+    public JSONObject toJson() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("title", title);
+        jsonObject.put("date", date);
+        jsonObject.put("distance", distance);
+        jsonObject.put("duration", duration);
+        jsonObject.put("pace", pace);
+        jsonObject.put("elevation", pace);
+        jsonObject.put("activity", activity);
+        return jsonObject;
     }
 }

@@ -1,6 +1,7 @@
 package model;
 
 
+import org.json.JSONObject;
 
 // Represents a Bike entry having a title, date, distance, duration and pace
 public class Bike implements Exercise {
@@ -10,6 +11,7 @@ public class Bike implements Exercise {
     private String duration;
     private double pace;
     private int elevation;
+    private String activity;
 
     /*
      * REQUIRES: pace, distance, duration, and elevation must be non-negative values
@@ -24,6 +26,7 @@ public class Bike implements Exercise {
         duration = "00:00:00";
         pace = 0.0;
         elevation = 0;
+        activity = "bike";
     }
 
     public String getTitle() {
@@ -89,6 +92,18 @@ public class Bike implements Exercise {
                 + "\n Duration: " + duration
                 + "\n Pace: " + paceString + " min/km"
                 + "\n Elevation: " + elevationString + " m";
+    }
+
+    public JSONObject toJson() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("title", title);
+        jsonObject.put("date", date);
+        jsonObject.put("distance", distance);
+        jsonObject.put("duration", duration);
+        jsonObject.put("pace", pace);
+        jsonObject.put("elevation", pace);
+        jsonObject.put("activity", activity);
+        return jsonObject;
     }
 
 }
