@@ -1,0 +1,29 @@
+{"exercises": [
+  {
+    "date": "01/01/2022",
+    "duration": "01:00:00",
+    "elevation": 0,
+    "distance": 0,
+    "activity": "swim",
+    "pace": 0,
+    "title": "Cold Swim"
+  },
+  {
+    "date": "02/02/2022",
+    "duration": "02:00:00",
+    "elevation": 0,
+    "distance": 0,
+    "activity": "bike",
+    "pace": 0,
+    "title": "Speedy Bike Ride"
+  },
+  {
+    "date": "03/03/2022",
+    "duration": "03:00:00",
+    "elevation": 0,
+    "distance": 0,
+    "activity": "run",
+    "pace": 0,
+    "title": "Long Run"
+  }
+]}
