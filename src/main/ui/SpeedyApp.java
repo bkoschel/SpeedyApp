@@ -2,7 +2,11 @@ package ui;
 
 
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // the structure and some methods of this class were inspired by
@@ -10,12 +14,17 @@ import java.util.Scanner;
 
 // This class represents an exercise logging application
 public class SpeedyApp {
+    private static final String JSON_FILE = "./data/exerciseLog.json";
     private Scanner input;
     private ExerciseLog exerciseLog;
     private boolean exit;
+    private JsonWriter writer;
+    private JsonReader reader;
 
     // EFFECTS: Runs the Speedy App
     SpeedyApp() {
+        writer = new JsonWriter(JSON_FILE);
+        reader = new JsonReader(JSON_FILE);
         runSpeedy();
     }
 
@@ -58,6 +67,8 @@ public class SpeedyApp {
         System.out.println("\te -> Edit Activity");
         System.out.println("\ts -> Select Activity by Name");
         System.out.println("\tt -> View Stats");
+        System.out.println("\tn -> Save Exercise Log");
+        System.out.println("\tl -> Load Exercise Log");
         System.out.println("\tx -> Exit");
     }
 
@@ -76,6 +87,10 @@ public class SpeedyApp {
             selectActivity();
         }  else if (command.equals("t")) {
             viewStats();
+        } else if (command.equals("n")) {
+            saveExerciseLog();
+        } else if (command.equals("l")) {
+            loadExerciseLog();
         } else if (command.equals("x")) {
             exit = true;
         } else {
@@ -322,6 +337,26 @@ public class SpeedyApp {
         System.out.println("Average Running Pace: " + exerciseLog.averageRunPace());
         System.out.println("Total Running Distance: " + exerciseLog.totalRunDistance());
         System.out.println("Total Running Elevation: " + exerciseLog.totalRunElevation());
+    }
+
+    private void saveExerciseLog() {
+        try {
+            writer.open();
+            writer.write(exerciseLog);
+            writer.close();
+            System.out.println("Saved Your Exercise Log");
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_FILE);
+        }
+    }
+
+    private void loadExerciseLog() {
+        try {
+            exerciseLog = reader.read();
+            System.out.println("Loaded the Last Saved Exercise Log");
+        } catch (IOException e) {
+            System.out.println("Unable to read from the file: " + JSON_FILE);
+        }
     }
 
 }
