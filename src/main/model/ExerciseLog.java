@@ -181,6 +181,10 @@ public class ExerciseLog {
         return totalBikeElevation;
     }
 
+    public int getExerciseLogSize() {
+        return exercises.size();
+    }
+
     public JSONObject toJson() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("exercises", exercisesToJson());
@@ -193,5 +197,9 @@ public class ExerciseLog {
             jsonArray.put(e.toJson());
         }
         return jsonArray;
+    }
+
+    public List<Exercise> getExerciseLog() {
+        return exercises;
     }
 }

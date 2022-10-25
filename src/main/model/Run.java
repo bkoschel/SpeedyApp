@@ -54,6 +54,10 @@ public class Run implements Exercise {
         return elevation;
     }
 
+    public String getActivity() {
+        return activity;
+    }
+
     // REQUIRES: title must have unique name
     public void setTitle(String title) {
         this.title = title;

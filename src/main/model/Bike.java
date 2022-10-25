@@ -53,6 +53,11 @@ public class Bike implements Exercise {
         return elevation;
     }
 
+    @Override
+    public String getActivity() {
+        return activity;
+    }
+
     // REQUIRES: title must have unique name
     public void setTitle(String title) {
         this.title = title;

@@ -18,6 +18,8 @@ public interface Exercise {
 
     int getElevation();
 
+    String getActivity();
+
     // setters
     // REQUIRES: title must have unique name
     void setTitle(String title);

@@ -56,6 +56,10 @@ public class Swim implements Exercise {
         return elevation;
     }
 
+    public String getActivity() {
+        return activity;
+    }
+
     // setters
     // REQUIRES: title must have unique name
     public void setTitle(String title) {
