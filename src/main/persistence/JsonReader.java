@@ -74,7 +74,7 @@ public class JsonReader {
             addSwim(exerciseLog, nextExercise);
         } else if (nextExercise.get("activity").equals("bike")) {
             addBike(exerciseLog, nextExercise);
-        } else if (nextExercise.get("activity").equals("run")) {
+        } else {
             addRun(exerciseLog, nextExercise);
         }
     }
