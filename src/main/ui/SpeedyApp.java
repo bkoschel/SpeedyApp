@@ -11,6 +11,8 @@ import java.util.Scanner;
 
 // the structure and some methods of this class were inspired by
 // https://github.students.cs.ubc.ca/CPSC210/TellerApp
+// Some methods used in this class were inspired by methods in JsonSerialization program
+// GitHub Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 
 // This class represents an exercise logging application
 public class SpeedyApp {
@@ -339,6 +341,9 @@ public class SpeedyApp {
         System.out.println("Total Running Elevation: " + exerciseLog.totalRunElevation());
     }
 
+    // EFFECTS: saves exercise log
+    // toJson was inspired by the saveWorkRoom method from JsonSerialization
+    // GitHub Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     private void saveExerciseLog() {
         try {
             writer.open();
@@ -350,6 +355,10 @@ public class SpeedyApp {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: loads saved exercise log from file
+    // toJson was inspired by the loadWorkRoom method from JsonSerialization
+    // GitHub Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     private void loadExerciseLog() {
         try {
             exerciseLog = reader.read();

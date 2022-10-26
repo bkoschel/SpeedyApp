@@ -52,4 +52,23 @@ public class JsonReaderTest extends JsonTest{
 
     }
 
+    @Test
+    void testReadingFromExerciseLogRun() {
+        JsonReader reader = new JsonReader("./data/testReadingFromExerciseLogRun.json");
+        try {
+            ExerciseLog exerciseLog = reader.read();
+            List<Exercise> exerciseList = exerciseLog.getExerciseLog();
+            assertEquals(3, exerciseList.size());
+            checkExercises("Cold Swim", "01/01/2022", 0.0, "01:00:00", 0.0, 0,
+                    "swim", exerciseList.get(0));
+            checkExercises("Long Run", "03/03/2022", 0.0, "03:00:00", 0.0, 0,
+                    "run",exerciseList.get(1));
+            checkExercises("Speedy Bike Ride", "02/02/2022", 0.0, "02:00:00", 0.0,
+                    0, "bike", exerciseList.get(2));
+        } catch (IOException e) {
+            fail("Could not read from this file");
+        }
+
+    }
+
 }

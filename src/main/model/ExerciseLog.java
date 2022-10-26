@@ -3,13 +3,17 @@ package model;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.JsonWriter;
+import persistence.Writable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-// Exercise log represents a list of exercises (biking, running, and swimming) and the methods
 // tha can be used to perform operations on a list of exercises such as addExercise and removeExercise
-public class ExerciseLog {
+// Some methods used in this class were inspired by methods in JsonSerialization program
+// GitHub Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+
+// Exercise log represents a list of exercises (biking, running, and swimming) and the methods
+public class ExerciseLog implements Writable {
     private final List<Exercise> exercises;
 
     // EFFECTS: creates an ArrayList for exercises to be stored in
@@ -181,16 +185,28 @@ public class ExerciseLog {
         return totalBikeElevation;
     }
 
+    // EFFECTS: returns the size of the exercise log
     public int getExerciseLogSize() {
         return exercises.size();
     }
 
+    // EFFECTS: returns a list of exercises;
+    public List<Exercise> getExerciseLog() {
+        return exercises;
+    }
+
+    // EFFECTS: returns a JSONObject representing the exercise log
+    // toJson was inspired by the toJson method from JsonSerialization
+    // GitHub Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     public JSONObject toJson() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("exercises", exercisesToJson());
         return jsonObject;
     }
 
+    // EFFECTS: returns a JSONArray of exercises in the exercise log
+    // toJson was inspired by the thingiesToJson method from JsonSerialization
+    // GitHub Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     private JSONArray exercisesToJson() {
         JSONArray jsonArray = new JSONArray();
         for (Exercise e : exercises) {
@@ -199,7 +215,4 @@ public class ExerciseLog {
         return jsonArray;
     }
 
-    public List<Exercise> getExerciseLog() {
-        return exercises;
-    }
 }

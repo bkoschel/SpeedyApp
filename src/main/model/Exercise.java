@@ -2,6 +2,9 @@ package model;
 
 import org.json.JSONObject;
 
+// Some methods used in this class were inspired by methods in JsonSerialization program
+// GitHub Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+
 // Represents an Exercise entry having a title, date, distance, duration and pace
 public interface Exercise {
 
@@ -40,6 +43,7 @@ public interface Exercise {
     // EFFECTS: returns a string representation of an exercise
     String toString();
 
+    // EFFECTS: returns a JSONObject representation of an exercise
     JSONObject toJson();
 
 }

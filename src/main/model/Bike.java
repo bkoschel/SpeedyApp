@@ -2,9 +2,13 @@ package model;
 
 
 import org.json.JSONObject;
+import persistence.Writable;
 
-// Represents a Bike entry having a title, date, distance, duration and pace
-public class Bike implements Exercise {
+// Some methods used in this class were inspired by methods in JsonSerialization program
+// GitHub Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+
+// Represents a Bike entry having a title, date, distance, duration, pace and activity type
+public class Bike implements Exercise, Writable {
     private String title;
     private String date;
     private double distance;
@@ -18,6 +22,7 @@ public class Bike implements Exercise {
      * EFFECTS: sets the title of the swimming activity to default 'New Bike'; Sets the date to current
      * date and time; sets the distance to 0.0km; sets the duration to 00(hours):00(minutes):00(seconds);
      * sets the pace to 0:00 min/km; sets the elevation to 0 meters;
+     * activity is the activity type for a given exercise
      */
     public Bike() {
         title = "New Bike Ride";
@@ -99,6 +104,10 @@ public class Bike implements Exercise {
                 + "\n Elevation: " + elevationString + " m";
     }
 
+    // EFFECTS: returns a JSON object reflecting the properties of a bike ride including exercise title, date,
+    //          distance, duration, pace, elevation and activity type.
+    // toJson was inspired by the toJson method from JsonSerialization
+    // GitHub Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     public JSONObject toJson() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("title", title);
