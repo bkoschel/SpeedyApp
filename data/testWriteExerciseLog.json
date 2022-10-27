@@ -1,0 +1,29 @@
+{"exercises": [
+    {
+        "date": "01/01/2022",
+        "duration": "00:00:00",
+        "elevation": 0,
+        "distance": 0,
+        "activity": "swim",
+        "pace": 0,
+        "title": "New Swim"
+    },
+    {
+        "date": "01/01/2022",
+        "duration": "00:00:00",
+        "elevation": 0,
+        "distance": 0,
+        "activity": "bike",
+        "pace": 0,
+        "title": "New Bike Ride"
+    },
+    {
+        "date": "01/01/2022",
+        "duration": "00:00:00",
+        "elevation": 0,
+        "distance": 0,
+        "activity": "run",
+        "pace": 0,
+        "title": "New Run"
+    }
+]}
