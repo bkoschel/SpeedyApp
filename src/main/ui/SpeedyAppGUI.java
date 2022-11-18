@@ -75,13 +75,11 @@ public class SpeedyAppGUI implements ListSelectionListener {
     }
 
     private static JMenuItem saveMenuItem() {
-        JMenuItem save = new JMenuItem("Save Exercise Log");
-        return save;
+        return new JMenuItem("Save Exercise Log");
     }
 
     private static JMenuItem loadMenuItem() {
-        JMenuItem load = new JMenuItem("Load Exercise Log");
-        return load;
+        return new JMenuItem("Load Exercise Log");
     }
 
     private JPanel createMainPanel() {
@@ -112,16 +110,16 @@ public class SpeedyAppGUI implements ListSelectionListener {
         return activityPanel;
     }
 
-    private static JPanel createTitlesAndText() {
+    private JPanel createTitlesAndText() {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        JPanel titleTitle = createBorderTitles("Title");
-        JPanel typeTitle = createBorderTitles("Activity Type");
-        JPanel dateTitle = createBorderTitles("Date");
-        JPanel distanceTitle = createBorderTitles("Distance");
-        JPanel durationTitle = createBorderTitles("Duration");
-        JPanel paceTitle = createBorderTitles("Pace");
-        JPanel elevationTitle = createBorderTitles("Elevation");
+        JPanel titleTitle = createTitle();
+        JPanel dateTitle = createDate();
+        JPanel distanceTitle = createDistance();
+        JPanel durationTitle = createDuration();
+        JPanel paceTitle = createPace();
+        JPanel elevationTitle = createElevation();
+        JPanel typeTitle = createActivity();
         panel.add(titleTitle);
         panel.add(typeTitle);
         panel.add(dateTitle);
@@ -132,15 +130,47 @@ public class SpeedyAppGUI implements ListSelectionListener {
         return panel;
     }
 
-    private static JPanel createBorderTitles(String title) {
-        JPanel titledBorders = new JPanel();
-        titledBorders.setLayout(new BoxLayout(titledBorders,
-                BoxLayout.Y_AXIS));
-        TitledBorder titled;
+    private JPanel createTitle() {
+        JPanel titleTitle = createBorderTitles("Title", title);
+        return titleTitle;
+    }
 
+    private JPanel createDate() {
+        JPanel dateTitle = createBorderTitles("Date", date);
+        return dateTitle;
+    }
+
+    private JPanel createDistance() {
+        JPanel distanceTitle = createBorderTitles("Distance", distance);
+        return distanceTitle;
+    }
+
+    private JPanel createDuration() {
+        JPanel durationTitle = createBorderTitles("Duration", duration);
+        return durationTitle;
+    }
+
+    private JPanel createPace() {
+        JPanel paceTitle = createBorderTitles("Pace", pace);
+        return paceTitle;
+    }
+
+    private JPanel createElevation() {
+        JPanel elevationTitle = createBorderTitles("Elevation", elevation);
+        return elevationTitle;
+    }
+
+    private JPanel createActivity() {
+        JPanel activityTitle = createBorderTitles("Activity Type", activity);
+        return activityTitle;
+    }
+
+    private JPanel createBorderTitles(String title, JTextField textField) {
+        JPanel titledBorders = new JPanel();
+        titledBorders.setLayout(new BoxLayout(titledBorders, BoxLayout.Y_AXIS));
+        TitledBorder titled;
         titled = BorderFactory.createTitledBorder(title);
-        addCompForBorder(titled,
-                titledBorders);
+        addCompForBorder(titled, titledBorders, textField);
         return titledBorders;
     }
 
@@ -172,6 +202,22 @@ public class SpeedyAppGUI implements ListSelectionListener {
         return activityDisplayPanel;
     }
 
+    private void displayActivity(String title) {
+        for (Exercise e: exerciseLog.getExerciseLog()) {
+            if (e.getTitle().equals(title)) {
+                JTextArea exercise = new JTextArea("\nActivity Title: " + e.getTitle()
+                                                 + "\nDate: " + e.getDate()
+                                                 + "\nDistance: " + e.getDistance()
+                                                 + "\nDuration: " + e.getDuration()
+                                                 + "\nPace: " + e.getPace()
+                                                 + "\nElevation: " + e.getElevation()
+                                                 + "\nActivity Type: " + e.getActivity());
+                activityDisplayPanel.add(exercise);
+            }
+        }
+
+    }
+
 
     private JPanel createButtonPanel() {
         buttonPanel = new JPanel();
@@ -181,20 +227,19 @@ public class SpeedyAppGUI implements ListSelectionListener {
         return buttonPanel;
     }
 
-    void addCompForTitledBorder(TitledBorder border,
-                                int justification,
-                                int position,
-                                Container container) {
-        border.setTitleJustification(justification);
-        border.setTitlePosition(position);
-        addCompForBorder(border, container);
+    private void createAddExerciseButton() {
+
     }
 
+
     static void addCompForBorder(Border border,
-                                 Container container) {
+                                 Container container,
+                                 JTextField textField) {
         JPanel comp = new JPanel(new GridLayout(1, 1), false);
-        JTextField title = new JTextField();
-        comp.add(title);
+        textField = new JTextField();
+        // textField.addActionListener(addExerciseListener);
+        //textField.getDocument().addDocumentListener(addExerciseListener);
+        comp.add(textField);
         comp.setBorder(border);
 
         container.add(Box.createRigidArea(new Dimension(0, 10)));
