@@ -23,3 +23,16 @@ because I am a runner and I enjoy being able to track my progress in my favourit
 - **As a User I want to be able to:** save their exercise log.
 - **As a User I want to be able to:** load an exercise log
 
+
+# Instructions for Grader
+
+- You can generate the first required event related to adding Xs to a Y (add an exercise to the exercise log) by:
+  - carefully fill out the text fields required to create an exercise based on their specifications
+  - hit tab after every input or click on the next text box
+  - click the add exercise button at the bottom of the screen
+- You can generate the second required event related to adding Xs to a Y (remove an exercise from the exercise log) by:
+  - click on the exercise you wish to remove
+  - click the remove exercise button at the bottom of the screen
+- You can locate my visual component by running the program
+- You can save the state of my application by clicking the save button and then closing the program
+- You can reload the state of my application by clicking the load button

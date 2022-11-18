@@ -115,7 +115,7 @@ public class Run implements Exercise, Writable {
         jsonObject.put("distance", distance);
         jsonObject.put("duration", duration);
         jsonObject.put("pace", pace);
-        jsonObject.put("elevation", pace);
+        jsonObject.put("elevation", elevation);
         jsonObject.put("activity", activity);
         return jsonObject;
     }
