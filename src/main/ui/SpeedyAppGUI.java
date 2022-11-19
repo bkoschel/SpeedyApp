@@ -24,6 +24,7 @@ public class SpeedyAppGUI implements ListSelectionListener {
 
     private JPanel mainPanel;
     private JFrame frame;
+    private JTextPane exercisePane;
 
     private ExerciseLog exerciseLog;
     private JTextField title;
@@ -87,6 +88,25 @@ public class SpeedyAppGUI implements ListSelectionListener {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: generates an exercise panel
+    private JPanel createExercisePanel() {
+        JPanel panel = new JPanel();
+        panel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        panel.setLayout(new GridLayout(1,1));
+        panel.setBackground(customColor);
+        createExercisePane(panel);
+        return panel;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: initializes the exercise panel
+    private void createExercisePane(JPanel panel) {
+        exercisePane = new JTextPane();
+        panel.add(exercisePane);
+    }
+
+    // MODIFIES: this
     // EFFECTS: initializes all buttons in the program
     private void initiateButtons() {
         createAddExerciseButton();
@@ -106,9 +126,11 @@ public class SpeedyAppGUI implements ListSelectionListener {
         JPanel activityPanel = createActivityPanel();
         JPanel listPanel = createListPanel();
         JPanel buttonPanel = createButtonPanel();
+        JPanel exercisePanel = createExercisePanel();
 
         mainPanel.add(activityPanel);
         mainPanel.add(listPanel);
+        mainPanel.add(exercisePanel);
         mainPanel.add(buttonPanel);
     }
 
@@ -248,7 +270,7 @@ public class SpeedyAppGUI implements ListSelectionListener {
         add = new JButton("Add Exercise");
         addExerciseListener = new AddExerciseListener(add);
         initializeButtons(add,"Add Exercise", addExerciseListener);
-        add.setEnabled(true);
+        add.setEnabled(false);
     }
 
     // MODIFIES: this
@@ -363,6 +385,30 @@ public class SpeedyAppGUI implements ListSelectionListener {
     public void valueChanged(ListSelectionEvent e) {
         if (!e.getValueIsAdjusting()) {
             remove.setEnabled(list.getSelectedIndex() != -1);
+            if (list.getSelectedIndex() == -1) {
+                remove.setEnabled(false);
+            } else {
+                remove.setEnabled(true);
+                displayExercise(listModel.get(list.getSelectedIndex()));
+            }
+        }
+
+    }
+
+    // MODIFIES: this
+    // EFFECTS: prints out the core parts of an exercise
+    public void displayExercise(String title) {
+        for (Exercise e: exerciseLog.getExerciseLog()) {
+            if (e.getTitle().equals(title)) {
+                String exercise = ("\nTitle: " + e.getTitle()
+                        + "\nDate: " + e.getDate()
+                        + "\nDistance: " + e.getDistance()
+                        + "\nDuration: " + e.getDuration()
+                        + "\nPace: " + e.getPace()
+                        + "\nElevation: " + e.getElevation()
+                        + "\nActivity: " + e.getActivity());
+                exercisePane.setText(exercise);
+            }
         }
     }
 
@@ -395,7 +441,9 @@ public class SpeedyAppGUI implements ListSelectionListener {
             exerciseLog.addExercise(exercise);
 
             int index = list.getSelectedIndex();
-            if (index == -1 || index >= 0) {
+            if (index == -1) {
+                index = 0;
+            } else {
                 index++;
             }
 
@@ -526,8 +574,10 @@ public class SpeedyAppGUI implements ListSelectionListener {
 
             if (size == 0) {
                 remove.setEnabled(false);
+                exercisePane.setText("");
+                exercisePane.setVisible(true);
             } else {
-                if (index == size) {
+                if (index == listModel.getSize()) {
                     index--;
                 }
 
