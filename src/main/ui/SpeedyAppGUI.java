@@ -74,7 +74,6 @@ public class SpeedyAppGUI implements ListSelectionListener {
         initiateButtons();
         initializeJTextFields();
         createMainPanel();
-        createIcon();
 
         frame.add(mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,11 +81,6 @@ public class SpeedyAppGUI implements ListSelectionListener {
         frame.setVisible(true);
     }
 
-    // MODIFIES: this
-    // EFFECTS; creates an icon image for the SpeedyApp GUI JFrame
-    private void createIcon() {
-
-    }
 
     // MODIFIES: this
     // EFFECTS: generates an exercise panel
@@ -181,7 +175,7 @@ public class SpeedyAppGUI implements ListSelectionListener {
     // MODIFIES: this
     // EFFECTS: creates a JLabel for distance and adds it to the panel
     public void createDistance(JPanel panel) {
-        JLabel distanceTitle = new JLabel("Distance in Meters (format as 0.0)");
+        JLabel distanceTitle = new JLabel("Distance in Kilometers (format as a decimal)");
         panel.add(distanceTitle);
         panel.add(this.distance);
     }
@@ -197,7 +191,7 @@ public class SpeedyAppGUI implements ListSelectionListener {
     // MODIFIES: this
     // EFFECTS: creates a JLabel for pace and adds it to the panel
     public void createPace(JPanel panel) {
-        JLabel paceTitle = new JLabel("Pace in min/km (format as 0.0)");
+        JLabel paceTitle = new JLabel("Pace in min/km (format as a decimal");
         panel.add(paceTitle);
         panel.add(this.pace);
     }
@@ -205,7 +199,7 @@ public class SpeedyAppGUI implements ListSelectionListener {
     // MODIFIES: this
     // EFFECTS: creates a JLabel for elevation and adds it to the panel
     public void createElevation(JPanel panel) {
-        JLabel elevationTitle = new JLabel("Elevation in Meters (format as 0)");
+        JLabel elevationTitle = new JLabel("Elevation in Meters (format as an integer)");
         panel.add(elevationTitle);
         panel.add(this.elevation);
     }
