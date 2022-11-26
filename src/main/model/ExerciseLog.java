@@ -24,12 +24,15 @@ public class ExerciseLog implements Writable {
     // MODIFIES: this
     public void addExercise(Exercise exercise) {
         exercises.add(exercise);
+        EventLog.getInstance().logEvent(new Event(exercise.getTitle() + " was added to the exercise log."));
     }
 
     // REQUIRES: there must be at least one exercise in the list of exercises
     // MODIFIES: this
     public void removeExercise(Exercise exercise) {
         exercises.remove(exercise);
+        EventLog.getInstance().logEvent(new Event(exercise.getTitle() + " was removed to the exercise log."));
+
     }
 
     // EFFECTS: returns True if an exercise is present in a list of exercises

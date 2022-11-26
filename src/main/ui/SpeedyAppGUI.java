@@ -1,6 +1,7 @@
 package ui;
 
 import model.*;
+import model.Event;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -12,6 +13,8 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 // many methods used in this class were from the Tutorials and Demos found at
@@ -79,6 +82,8 @@ public class SpeedyAppGUI implements ListSelectionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
+        frame.addWindowListener(logEvents());
     }
 
 
@@ -662,5 +667,16 @@ public class SpeedyAppGUI implements ListSelectionListener {
 
         LayoutManager layoutManager = new OverlayLayout(gifPanel);
         gifPanel.setLayout(layoutManager);
+    }
+
+    private WindowAdapter logEvents() {
+        return new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                for (Event el: EventLog.getInstance()) {
+                    System.out.println(el.getDescription());
+                }
+            }
+        };
     }
 }

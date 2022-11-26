@@ -36,3 +36,14 @@ because I am a runner and I enjoy being able to track my progress in my favourit
 - You can locate my visual component by running the program
 - You can save the state of my application by clicking the save button and then closing the program
 - You can reload the state of my application by clicking the load button
+
+
+# Phase 4: Task 2
+Tempo Run was added to the exercise log.
+Short Swim was added to the exercise log.
+Short Swim was removed to the exercise log.
+Bike Ride was added to the exercise log.
+Bike Ride was removed to the exercise log.
+Tempo Run was removed to the exercise log.
+
+# Phase 4: Task 3 
