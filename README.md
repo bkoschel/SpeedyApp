@@ -47,3 +47,7 @@ Bike Ride was removed to the exercise log.
 Tempo Run was removed to the exercise log.
 
 # Phase 4: Task 3 
+If I had more time to work on this project I would change a few things. Firstly, there is a lot of duplication in 
+almost all of my code. I would fix this by making the Exercise class abstract. I would then use the Composite Design 
+Pattern to simplify and organize my code. I would make ExerciseLog be the Composite, Exercise be the Component and any 
+of the exercise (such as Bike or Swim) be the Leaves. 
